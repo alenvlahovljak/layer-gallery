@@ -1,0 +1,56 @@
+name: Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Please enter the version you wish to deploy (e.g., 1.0.0):'
+        required: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node-version: [ '20.x' ]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 'Create env file'
+        run: |
+          touch .env
+          echo SITE_URL=${{ vars.SITE_URL }} >> .env
+          echo PUBLIC_URL=${{ vars.PUBLIC_URL }} >> .env
+          echo API_URL=${{ vars.API_URL }} >> .env
+          echo API_KEY=${{ secrets.API_KEY }} >> .env
+          cat .env
+
+      - name: Build image
+        run: docker build . --file Dockerfile --tag layer-gallery-web --label "runnumber=${GITHUB_RUN_ID}"
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push image to GitHub Container Registry
+        env:
+          RELEASE_VERSION: ${{ github.event.inputs.version }}
+        run: |
+          IMAGE_ID=ghcr.io/${{ github.repository_owner }}/layer-gallery-web
+          # Change all uppercase to lowercase
+          IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
+          # Attach release version
+          VERSION=${{ env.RELEASE_VERSION }}
+          # Print env vars
+          echo IMAGE_ID=$IMAGE_ID
+          echo VERSION=$VERSION
+          ## Push refs to repository
+          docker tag layer-gallery-web $IMAGE_ID:$VERSION
+          docker push $IMAGE_ID:$VERSION

@@ -1,0 +1,21 @@
+FROM node:20-slim
+WORKDIR /usr/app
+
+ARG SITE_URL
+ARG PUBLIC_URL
+ARG API_URL
+ARG API_KEY
+
+ENV SITE_URL=$SITE_URL
+ENV PUBLIC_URL=$PUBLIC_URL
+ENV API_URL=$API_URL
+ENV API_KEY=$API_KEY
+
+COPY ./ ./
+
+RUN yarn install
+RUN yarn build
+
+EXPOSE 5000
+
+CMD ["yarn", "start"]

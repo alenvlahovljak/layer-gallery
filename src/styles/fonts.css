@@ -1,0 +1,145 @@
+/*--------------------------------------------------------------
+# Inter
+--------------------------------------------------------------*/
+@font-face {
+  font-family: 'Inter';
+  src:
+    local('Inter-ExtraLight'),
+    url('../../public/fonts/Inter/Inter-ExtraLight.ttf') format('ttf');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    local('Inter-Light'),
+    url('../../public/fonts/Inter/Inter-Light.ttf') format('ttf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    local('Inter-Regular'),
+    url('../../public/fonts/Inter/Inter-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    local('Inter-Medium'),
+    url('../../public/fonts/Inter/Inter-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    local('Inter-SemiBold'),
+    url('../../public/fonts/Inter/Inter-SemiBold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    local('Inter-Bold'),
+    url('../../public/fonts/Inter/Inter-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src:
+    local('Inter-ExtraBold'),
+    url('../../public/fonts/Inter/Inter-ExtraBold.ttf') format('ttf');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*--------------------------------------------------------------
+# Karla
+--------------------------------------------------------------*/
+@font-face {
+  font-family: 'Karla';
+  src:
+    local('Karla-ExtraLight'),
+    url('../../public/fonts/Karla/Karla-ExtraLight.ttf') format('ttf');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src:
+    local('Karla-Light'),
+    url('../../public/fonts/Karla/Karla-Light.ttf') format('ttf');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src:
+    local('Karla-Regular'),
+    url('../../public/fonts/Karla/Karla-Regular.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src:
+    local('Karla-Medium'),
+    url('../../public/fonts/Karla/Karla-Medium.ttf') format('ttf');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src:
+    local('Karla-SemiBold'),
+    url('../../public/fonts/Karla/Karla-SemiBold.ttf') format('ttf');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src:
+    local('Karla-Bold'),
+    url('../../public/fonts/Karla/Karla-Bold.ttf') format('ttf');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Karla';
+  src:
+    local('Karla-ExtraBold'),
+    url('../../public/fonts/Karla/Karla-ExtraBold.ttf') format('ttf');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
