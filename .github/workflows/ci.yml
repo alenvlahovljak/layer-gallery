@@ -56,6 +56,21 @@ jobs:
       - name: Validate code
         run: yarn validate
 
+      - name: Release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GIT_AUTHOR_EMAIL: ${{ vars.ADMIN_EMAIL }}
+          GIT_AUTHOR_NAME: ${{ vars.ADMIN_NAME }}
+          GIT_COMMITTER_EMAIL: ${{ vars.ADMIN_EMAIL }}
+          GIT_COMMITTER_NAME: ${{ vars.ADMIN_NAME }}
+
+      - name: Get the release version
+        id: release
+        run: |
+          RELEASE_VERSION=$(cat RELEASE_VERSION 2>/dev/null || echo 'false')
+          echo "Release version is $RELEASE_VERSION"
+
   test:
     runs-on: ubuntu-latest
     needs: build
