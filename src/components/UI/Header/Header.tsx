@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from '@/hooks';
 
 import Icon from '../Icon/Icon';
-import { Container, Likes, NumOfLikes } from './Header.styled';
+import { Container, Likes, NumOfLikes, Childern } from './Header.styled';
 
 const Header: FC<PropsWithChildren> = ({ children }) => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Header: FC<PropsWithChildren> = ({ children }) => {
         {images.length != 0 && <NumOfLikes>{images.length}</NumOfLikes>}
         <Icon size={36} name="heart" />
       </Likes>
-      {children}
+      <Childern>{children}</Childern>
     </Container>
   );
 };

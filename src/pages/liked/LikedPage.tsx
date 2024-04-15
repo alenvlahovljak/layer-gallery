@@ -3,7 +3,7 @@ import { PAGE_SIZE } from '@/utils';
 import { useSelector } from '@/hooks';
 
 import { Link } from 'react-router-dom';
-import { Header, Gallery, Icon } from '@/components/UI';
+import { Header, Gallery, Icon, Typography } from '@/components/UI';
 
 const LikedPage: FC = () => {
   const { images, params } = useSelector((state) => state.likedImages);
@@ -14,7 +14,7 @@ const LikedPage: FC = () => {
         <Link to="/">
           <Icon name="arrow-left" />
         </Link>
-        Liked Images
+        <Typography.Text>Liked Images</Typography.Text>
       </Header>
       <Gallery
         images={images}

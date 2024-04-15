@@ -8,6 +8,7 @@ import Modal from '../Modal/Modal';
 import Img from './Img/Img';
 import Button from '../Button/Button';
 import BusyDots from '../BusyDots/BusyDots';
+import Typography from '../Typography/Typography';
 import { Row, Column } from './Gallery.styled';
 
 interface GalleryProps {
@@ -45,6 +46,10 @@ const Gallery: FC<GalleryProps> = ({ images, loading, search, params, hasMore, l
     const columns = Math.ceil(images.length / 3);
     const rows = Math.ceil(images.length / columns);
 
+    if (columns == 0 || rows == 0) {
+      return <Typography centered={true}>Gallery is empty</Typography>;
+    }
+
     return (
       <Row $loaded={loaded} onLoad={() => setLoaded(true)}>
         {Array.from({ length: rows }, (_, rowIndex) => (
@@ -65,6 +70,7 @@ const Gallery: FC<GalleryProps> = ({ images, loading, search, params, hasMore, l
                   />
                 );
               }
+
               return null;
             })}
           </Column>
